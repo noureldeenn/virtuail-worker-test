@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Loan Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="content">
+          <h1>Calculate Your Rewards</h1>
+        </div>
+
+        <div class="columns">
+          <div class="column is-three-quarters">
+            <div class="card">
+              <div class="card-content">
+                <form id="loan-form">
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        <p class="number">1</p>
+                        Vendor/Bills
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left ">
+                            <input class="input" id="amount" type="number" />
+                            <span class="icon is-small is-left">
+                              <i class="fa fa-dollar-sign"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        <p class="number">1</p>
+                        Media/Add
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left ">
+                            <input class="input" id="media" type="number" />
+                            <span class="icon is-small is-left">
+                              <i class="fa fa-dollar-sign"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        <p class="number">1</p>
+                        Corp
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left ">
+                            <input class="input" id="corp" type="number" />
+                            <span class="icon is-small is-left">
+                              <i class="fa fa-dollar-sign"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        <p class="number">1</p>
+                        Team Project
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left ">
+                            <input class="input" id="team" type="number" />
+                            <span class="icon is-small is-left">
+                              <i class="fa fa-dollar-sign"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="control">
+                    <button
+                      class="button is-large is-fullwidth is-primary is-outlined"
+                    >
+                      Calculate
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <div class="control">
+      <button
+        class="button is-primary is-outlined"
+        onclick="Brex()"
+      >
+      Brex
+      </button>
+    </div>
+    <div class="control">
+      <button
+        class="button is-primary is-outlined"
+        onclick="stripe()"
+      >
+      Stripe
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        class="button is-primary is-outlined"
+        onclick="amex()"
+      >
+      Amex
+      </button>
+    </div>
+
+
+    <!-- RESULTS -->
+    <section class="section"> 
+      <h1 class="title ">Calculated Results</h1>
+<div class="columns is-multiline">
+  
+  <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+    <div class="notification is-primary has-text">
+      <p id="unlimitedRewards" class="title is-1">$</p>
+      <p class="subtitle is-4">Unlimited Rewards</p>
+    </div>
+  </div>
+
+    <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+        <div class="notification is-info has-text">
+          <p id="lifetimeRewards" class="title is-1">%</p>
+          <p class="subtitle is-4">Lifetime Rewards</p>
+        </div>
+      </div>
+
+      <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+        <div class="notification is-link has-text">
+          <p id="brex" class="title is-1">$</p>
+          <p class="subtitle is-4">Brex</p>
+        </div>
+      </div>
+
+      <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+        <div class="notification is-link has-text">
+          <p id="stripe" class="title is-1">$</p>
+          <p class="subtitle is-4">Stripe</p>
+        </div>
+      </div>
+
+      <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+        <div class="notification is-link has-text">
+          <p id="amex" class="title is-1">$</p>
+          <p class="subtitle is-4">Amex</p>
+        </div>
+      </div>
+
+</div>
+</section>
+
+
+
+  </body>
+
+  <script src="app.js"></script>
+</html>
